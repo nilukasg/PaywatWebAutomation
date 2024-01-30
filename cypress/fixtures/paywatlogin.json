@@ -1,0 +1,11 @@
+{
+  "currentURL2": "https://preprod.paywat.com/login",
+  "currentURL": "https://preprod.paywat.com/login",
+  "usernameGA": "dileep.rajapaksha@schoolgrove.com",
+  "passwordGA": "Paywat!123",
+  "expectedGA": "Dileep Rajapaksha",
+
+  "usernameParent": "dileep.rajapaksha@schoolgrove.com",
+  "passwordParent": "Paywat!123",
+  "expectedParent": "Dileep Rajapaksha"
+}
