@@ -1,11 +1,20 @@
 {
-  "currentURL2": "https://preprod.paywat.com/login",
-  "currentURL": "https://preprod.paywat.com/login",
-  "usernameGA": "dileep.rajapaksha@schoolgrove.com",
-  "passwordGA": "Paywat!123",
-  "expectedGA": "Dileep Rajapaksha",
-
+  "thirdPartyUrl": "https://preprod.paywat.com/thirdparty/redirect?hid=d5d674fcc64006a9396da51d82ae4cc006d0f29ac894403dd1358193e7dd114d&flow=items",
+  "paywatUrl": "https://preprod.paywat.com/login",
+  "username": "dileep.rajapaksha@schoolgrove.com",
+  "password": "s@aeyH3n",
+  "expected": "Dileep Rajapaksha",
   "usernameParent": "dileep.rajapaksha@schoolgrove.com",
-  "passwordParent": "Paywat!123",
-  "expectedParent": "Dileep Rajapaksha"
+  "passwordAdmin": "Paywat!123",
+  "expectedParent": "Dileep Rajapaksha",
+  "amount": "2",
+  "walletamount": "4",
+  "CVV": "123",
+  "cardnumber": "5555555555554444",
+  "ExpiryDate": "2512",
+  "CardHolder": "Julie Wooden",
+  "NickName": "Julie",
+  "Street": "36 E Main St.",
+  "City": "Norristown",
+  "ZipCode": "19401"
 }
