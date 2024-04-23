@@ -29,11 +29,9 @@ describe('LoginToPaywat', () => {
             cy.get(organizationsList.getLumenTouchElement()).first().click();
 
             cy.get('span').contains('Add-Ons').click();
-            cy.pause()
             const addOns = new AddOns();
-            addOns.clickParentBalance();
+            // addOns.clickAddOns();
             addOns.clickItems();
-            addOns.clickBalances();
         
         });
     });
