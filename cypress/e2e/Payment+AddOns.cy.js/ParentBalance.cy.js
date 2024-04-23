@@ -8,7 +8,7 @@ import MealTopUp from "../../PageObjects/MealTopUp.js";
 import MealSummary from "../../PageObjects/MealTopUpSummary.js";
 import Pay from "../../PageObjects/Confirm&Pay.js";
 
-// commands.js
+// Log in to paywat as a Global Admin.
 Cypress.Commands.add('loginAsAdmin', () => {
     cy.fixture('paywatlogin.json').then((credentials) => {
         const loginPage = new Login();
@@ -18,6 +18,7 @@ Cypress.Commands.add('loginAsAdmin', () => {
     });
 });
 
+// Navigate to organizations list.
 Cypress.Commands.add('navigateToOrganizationsList', () => {
     const leftMenu = new LeftMenu();
     leftMenu.clickMenuIcon();
@@ -26,7 +27,7 @@ Cypress.Commands.add('navigateToOrganizationsList', () => {
     cy.get(organizationsList.getLumenTouchElement()).first().click();
 });
 
-// tests.js
+// Turn off the Add On settings --> Parent Balance.
 describe('LoginToPaywat', () => {
     before(() => {
         cy.visit("https://preprod.paywat.com/login");
@@ -44,6 +45,7 @@ describe('LoginToPaywat', () => {
     });
 });
 
+// Log in to Paywat as a Parent and proceed in the payment flow.
 describe('LoginToPaywat as a Parent', () => {
     let credentials;
 
@@ -56,33 +58,40 @@ describe('LoginToPaywat as a Parent', () => {
         const ln = new Login();
         ln.setPassWord(credentials.password);
         ln.clickLoginButton();
+
+        // Items Selection.
         const selectItem = new SelectItem();
         selectItem.clickSelectAll();
         selectItem.clickNextButton();
-        cy.pause();
 
-        cy.pause();
+        //Items Summary.
+        const itemSummary = new ItemSummary();
+        itemSummary.clickNextButton2();
+
+        //Top up meal balances.
         const mealTopUp = new MealTopUp();
-        cy.pause();
         mealTopUp.setTopUpAmount(credentials.amount);
-        cy.pause();
         mealTopUp.clickNextButton3();
-        cy.pause();
+
+        //Meal topup summary
         const mealSummary = new MealSummary();
         mealSummary.clickNextButton4();
 
-        // const cardSelection = new CardSelection();
-        // cardSelection.clickCreditCard();
-        // cardSelection.clickNextButton6();
+        //Credit card selection.
+        const cardSelection = new CardSelection();
+        cardSelection.clickCreditCard();
+        cardSelection.clickNextButton6();
 
-        // Scroll to the bottom of the page
+        // Scroll to the bottom of the page.
         cy.window().scrollTo('bottom', { ensureScrollable: false });
-
+        
+        // Confirm the payment.
         const pay = new Pay();
         pay.setCVVNumber(credentials.CVV);
     });
 });
 
+// Turn On the Add On settings --> Parent's Balance.
 describe('LoginToPaywat', () => {
     before(() => {
         cy.visit("https://preprod.paywat.com/login");

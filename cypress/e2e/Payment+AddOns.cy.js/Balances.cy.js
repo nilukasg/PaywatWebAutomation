@@ -9,7 +9,7 @@ import CardSelection from "../../PageObjects/CreditCardSelection.js";
 
 import Pay from "../../PageObjects/Confirm&Pay.js";
 
-// commands.js
+// Log in to paywat as a Global Admin.
 Cypress.Commands.add('loginAsAdmin', () => {
     cy.fixture('paywatlogin.json').then((credentials) => {
         const loginPage = new Login();
@@ -19,6 +19,7 @@ Cypress.Commands.add('loginAsAdmin', () => {
     });
 });
 
+ // Navigate to organizations list.
 Cypress.Commands.add('navigateToOrganizationsList', () => {
     const leftMenu = new LeftMenu();
     leftMenu.clickMenuIcon();
@@ -27,7 +28,7 @@ Cypress.Commands.add('navigateToOrganizationsList', () => {
     cy.get(organizationsList.getLumenTouchElement()).first().click();
 });
 
-// tests.js
+// Turn off the Add On settings --> Balances.
 describe('LoginToPaywat', () => {
     before(() => {
         cy.visit("https://preprod.paywat.com/login");
@@ -45,6 +46,7 @@ describe('LoginToPaywat', () => {
     });
 });
 
+// Log in to Paywat as a Parent and proceed in the payment flow.
 describe('LoginToPaywat as a Parent', () => {
     let credentials;
 
@@ -57,33 +59,37 @@ describe('LoginToPaywat as a Parent', () => {
         const ln = new Login();
         ln.setPassWord(credentials.password);
         ln.clickLoginButton();
+        
+        // Items Selection.
         const selectItem = new SelectItem();
         selectItem.clickSelectAll();
         selectItem.clickNextButton();
-        cy.pause();
 
+        //Items Summary.
         const itemSummary = new ItemSummary();
         itemSummary.clickNextButton2();
 
+        //My balance topup.
         const walletTopUp = new WalletTopUp();
         walletTopUp.setWalletTopUpAmount(credentials.walletamount);
         walletTopUp.clickNextButton5();
 
+        //Credit card selection.
         const cardSelection = new CardSelection();
         cardSelection.clickCreditCard();
         cardSelection.clickNextButton6();
 
-        // Scroll to the bottom of the page
+        // Scroll to the bottom of the page.
         cy.window().scrollTo('bottom', { ensureScrollable: false });
 
+        // Confirm the payment.
         const pay = new Pay();
-        cy.pause();
         pay.verifyUI();
-        cy.pause();
         pay.setCVVNumber(credentials.CVV);
     });
 });
 
+// Turn On the Add On settings --> Balances.
 describe('LoginToPaywat', () => {
     before(() => {
         cy.visit("https://preprod.paywat.com/login");
