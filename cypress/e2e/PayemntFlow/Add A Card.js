@@ -37,8 +37,6 @@ describe('LoginToPaywat as a Parent', () => {
         const addCard = new AddCard();
         addCard.setCardNumber();
 
-  
-
         const pay = new Pay();
         pay.setCVVNumber(credentials.CVV);
         pay.clickNextButton7();

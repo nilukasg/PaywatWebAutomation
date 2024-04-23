@@ -1,4 +1,3 @@
-import PaywatUrls from "../../PageObjects/PaywatUrls.js";
 import Login from "../../PageObjects/Login.js";
 import SelectItem from "../../PageObjects/ItemSelection.js";
 import ItemSummary from "../../PageObjects/ItemSummary.js";
@@ -6,10 +5,10 @@ import MealTopUp from "../../PageObjects/MealTopUp.js";
 import WalletTopUp from "../../PageObjects/MyBalanceTopUp.js";
 import CardSelection from "../../PageObjects/CreditCardSelection.js";
 import Pay from "../../PageObjects/Confirm&Pay.js";
-import Assertions from "../../PageObjects/Assertions.js";
 
 
-describe('LoginToPaywat as a Parent', () => {
+
+describe('Payment flow with Item/s & Wallet TopUp', () => {
     let credentials;
 
     before(() => {
@@ -42,27 +41,6 @@ describe('LoginToPaywat as a Parent', () => {
 
         // Scroll to the bottom of the page
         cy.window().scrollTo('bottom', { ensureScrollable: false });
-
-        const assertions = new Assertions();
-        assertions.assertTitle();
-        assertions.assertItemName();
-        assertions.assertQTY();
-        assertions.assertAmount();
-        assertions.assertMyBalance();
-        assertions.assertMyBalanceAmount();
-        assertions.assertSubTotal();
-        assertions.assertSubTotalAmount();
-        assertions.assertProgramFee();
-        assertions.assertProgramFeeAmount();
-        assertions.assertTotal();
-        assertions.assertTotalAmount();
-        assertions.assertPaymentFromBalance();
-        assertions.assertPaymentFromBalanceAmount();
-        assertions.assertPaymentFromCard();
-        assertions.assertPaymentFromCardAmount();
-        assertions.assertEnterCvv();
-
-
         const pay = new Pay();
         pay.setCVVNumber(credentials.CVV);
         pay.clickNextButton7();

@@ -8,7 +8,7 @@ import CardSelection from "../../PageObjects/CreditCardSelection.js";
 import Pay from "../../PageObjects/Confirm&Pay.js";
 import Assertions from "../../PageObjects/Assertions.js";
 
-describe('LoginToPaywat as a Parent', () => {
+describe('Payment flow with Item/s, Meal TopUp & Wallet TopUp', () => {
     let credentials;
 
     before(() => {
@@ -44,24 +44,27 @@ describe('LoginToPaywat as a Parent', () => {
         itemSummary.clickNextButton2();
 
         const mealTopUp = new MealTopUp();
+        assertions.assertTitleMealTopup();
         mealTopUp.setTopUpAmount(credentials.amount);
         mealTopUp.clickNextButton3();
 
         const mealSummary = new MealSummary();
+        assertions.assertTitleMealTopupSummary();
         mealSummary.clickNextButton4();
 
         const walletTopUp = new WalletTopUp();
+        assertions.assertTitleMyBalanceTopup();
         walletTopUp.setWalletTopUpAmount(credentials.walletamount);
         walletTopUp.clickNextButton5();
 
         const cardSelection = new CardSelection();
+        assertions.assertTitlePayWith();
         cardSelection.clickCreditCard();
         cardSelection.clickNextButton6();
 
         // Scroll to the bottom of the page
         cy.window().scrollTo('bottom', { ensureScrollable: false });
-
-        // const assertions = new Assertions();    
+         
         assertions.assertTitle();
         assertions.assertItemName();
         assertions.assertQTY();

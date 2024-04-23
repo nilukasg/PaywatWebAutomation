@@ -4,216 +4,110 @@ class Assertions {
     textTitleSelectItems = "#feedScrollBar > div.item-list-main-container > div.item-list-header > div";
     textStudentName = "#feedScrollBar > div.item-list-main-container > div:nth-child(2) > div.item-list-student-main-container > div.item-list-student-title";
     textTitleItemsSummary = "#feedScrollBar > div.item-list-summary-main-container > div.item-list-summary-header > div";
+    textTitleMealTopup = "#feedScrollBar > div.account-balance-top-up-main-container > div.account-balance-top-up-main-title";
+    textTitleMealTopupSummary = "#feedScrollBar > div.meal-top-up-summary-main-container > div.meal-top-up-summary-header > div";
+    textTitleMyBalanceTopup = "#feedScrollBar > div.account-balance-top-up-main-container > div.account-balance-top-up-main-title";
+    textTitlePayWith= "#feedScrollBar > div.item-Payment-Card-List-main-container > div.item-Payment-Card-List-header > div";
 
-// Assertions - Select Items UI
-assertTitleSelectItems() {
-    cy.get(this.textTitleSelectItems).invoke('text').should('include', 'Select Item');
-    Cypress.log({
-        name: 'Assertion Status',
-        displayName: 'Title - Select Item',
-        message: 'Passed'
-    });
-}
+    // Assertions - Select Items UI
+    assertTitleSelectItems() {
+        cy.get(this.textTitleSelectItems).invoke('text').should('include', 'Select Item');
+    }
+    assertStudent() {
+        cy.get(this.textStudentName).invoke('text').should('include', 'Breanna Rose Wooden');
+    }
+    assertItemPrice() {
+        cy.get('span').contains('$15.00').should('exist');
+    }
+    assertItemsSubTotalAmount() {
+        cy.get('span').contains('$15.00').should('exist');
+    }
 
-assertStudent() {
-    cy.get(this.textStudentName).invoke('text').should('include', 'Breanna Rose Wooden');
-    Cypress.log({
-        name: 'Assertion Status',
-        displayName: 'Student Name',
-        message: 'Passed'
-    });
+    // Assertions - Items Summary
+    assertTitleItemsSummary() {
+        cy.get(this.textTitleItemsSummary).invoke('text').should('include', 'Item Summary');
+    }
+    assertNames() {
+        cy.get('span').contains('Breanna Rose Wooden').should('exist');
+    }  
+      
+    // Assertions - Meal Top Up
+    assertTitleMealTopup() {
+        cy.get(this.textTitleMealTopup).invoke('text').should('include', 'Top Up Meal Balances');
+    }
+    
+    // Assertions - Meal TopUp Summary
+    assertTitleMealTopupSummary() {
+        cy.get(this.textTitleMealTopupSummary).invoke('text').should('include', 'Meal Top Up Summary');
+    }
 
-}
+    // Assertions - My balance TopUp
+    assertTitleMyBalanceTopup() {
+        cy.get(this.textTitleMyBalanceTopup).invoke('text').should('include', 'Top Up My Balance for Next Time');
+    }
 
-assertItemPrice() {
-    cy.get('span').contains('$15.00').should('exist');
-    Cypress.log({
-        name: 'Assertion Status',
-        displayName: 'Item Price',
-        message: 'Passed'
-    });
-}
+    // Assertions - Credit Card selection
+    assertTitlePayWith() {
+        cy.get(this.textTitlePayWith).invoke('text').should('include', 'Pay with');
+    }
 
-assertItemsSubTotalAmount() {
-    cy.get('span').contains('$15.00').should('exist');
-    Cypress.log({
-        name: 'Assertion Status',
-        displayName: 'Items Sub Total Amount',
-        message: 'Passed'
-    });
-}
-
-// Assertions - Items Summary
-assertTitleItemsSummary() {
-    cy.get(this.textTitleItemsSummary).invoke('text').should('include', 'Item Summary');
-    Cypress.log({
-        name: 'Assertion Status',
-        displayName: 'Title - Item Summary',
-        message: 'Passed'
-    });
-}
-assertNames() {
-    cy.get('span').contains('Breanna Rose Wooden').should('exist');
-    Cypress.log({
-        name: 'Assertion Status',
-        displayName: 'Student Name',
-        message: 'Passed'
-    });
-}
-
-// Assertions - Confirm & Pay UI
+    // Assertions - Confirm & Pay UI
     assertTitle() {
         cy.get(this.textTitle).invoke('text').should('include', 'Confirm & Pay');
-        Cypress.log({
-            name: 'Assertion Status',
-            displayName: 'Title',
-            message: 'Passed'
-        });
     }
     assertItemName() {
         cy.get('span').contains('AUT_Item_1 (Breanna Wooden)').should('exist');
-        Cypress.log({
-            name: 'Assertion Status',
-            displayName: 'Item Name',
-            message: 'Passed'
-        });
     }
     assertQTY() {
         cy.get('span').contains('1').should('exist');
-        Cypress.log({
-            name: 'Assertion Status',
-            displayName: 'Item Quantity',
-            message: 'Passed'
-        });
     }
     assertAmount() {
-        cy.get('span').contains('$19.88').should('exist');
-        Cypress.log({
-            name: 'Assertion Status',
-            displayName: 'Item Price',
-            message: 'Passed'
-        });
+        cy.get('span').contains('$15.00').should('exist');
     }
     assertStudentName() {
         cy.get('span').contains('Breanna Rose Wooden').should('exist');
-        Cypress.log({
-            name: 'Assertion Status',
-            displayName: 'Student Name',
-            message: 'Passed'
-        });
     }
     assertMealTopUpAmount() {
-        cy.get('span').contains('$19.88').should('exist');
-        Cypress.log({
-            name: 'Assertion Status',
-            displayName: 'Meal TopUp Amount',
-            message: 'Passed'
-        });
+        cy.get('span').contains('$2.00').should('exist');
     }
     assertMyBalance() {
         cy.get('span').contains('My Balance Top up').should('exist');
-
-        Cypress.log({
-            name: 'Assertion Status',
-            displayName: 'My Balance Top up',
-            message: 'Passed'
-        });
     }
     assertMyBalanceAmount() {
         cy.get('span').contains('$4.00').should('exist');
-        Cypress.log({
-            name: 'Assertion Status',
-            displayName: 'My Balance Top up Amount',
-            message: 'Passed'
-        });
     }
     assertSubTotal() {
         cy.get('span').contains('Subtotal').should('exist');
-        Cypress.log({
-            name: 'Assertion Status',
-            displayName: 'Sub Total',
-            message: 'Passed'
-        });
     }
     assertSubTotalAmount() {
-        cy.get('span').contains('$19.00').should('exist');
-        Cypress.log({
-            name: 'Assertion Status',
-            displayName: 'Sub Total Amount',
-            message: 'Passed'
-        });
+        cy.get('span').contains('$21.00').should('exist');
     }
     assertProgramFee() {
         cy.get('span').contains('Program Fee').should('exist');
-        Cypress.log({
-            name: 'Assertion Status',
-            displayName: 'Program Fee',
-            message: 'Passed'
-        });
     }
     assertProgramFeeAmount() {
-        cy.get('span').contains('$0.88').should('exist');
-        Cypress.log({
-            name: 'Assertion Status',
-            displayName: 'Program Fee Amount',
-            message: 'Passed'
-        });
+        cy.get('span').contains('$0.94').should('exist');
     }
     assertTotal() {
         cy.get('span').contains('Total').should('exist');
-        Cypress.log({
-            name: 'Assertion Status',
-            displayName: 'Total',
-            message: 'Passed'
-        });
     }
     assertTotalAmount() {
-        cy.get('span').contains('$19.88').should('exist');
-        Cypress.log({
-            name: 'Assertion Status',
-            displayName: 'Total Amount',
-            message: 'Passed'
-        });
+        cy.get('span').contains('$21.94').should('exist');
     }
     assertPaymentFromBalance() {
         cy.get('span').contains('Payment from balance').should('exist');
-        Cypress.log({
-            name: 'Assertion Status',
-            displayName: 'Payment From Balance',
-            message: 'Passed'
-        });
     }
     assertPaymentFromBalanceAmount() {
         cy.get('span').contains('$0.00').should('exist');
-        Cypress.log({
-            name: 'Assertion Status',
-            displayName: 'Payment From Balance Amount',
-            message: 'Passed'
-        });
     }
     assertPaymentFromCard() {
         cy.get('span').contains('Payment from selected card').should('exist');
-        Cypress.log({
-            name: 'Assertion Status',
-            displayName: 'Payment From Card',
-            message: 'Passed'
-        });
     }
     assertPaymentFromCardAmount() {
-        cy.get('span').contains('$19.88').should('exist');
-        Cypress.log({
-            name: 'Assertion Status',
-            displayName: 'Payment From Card Amount',
-            message: 'Passed'
-        });
+        cy.get('span').contains('$21.94').should('exist');
     }
     assertEnterCvv() {
-        cy.get(this.textEnterCvv).invoke('text').should('include', 'Enter your CVV for your card ending 0000 to confirm you wish to pay $19.88');
-        Cypress.log({
-            name: 'Assertion Status',
-            displayName: 'Enter The CVV Explanation Text',
-            message: 'Passed'
-        });
+        cy.get(this.textEnterCvv).invoke('text').should('include', 'Enter your CVV for your card ending 0000 to confirm you wish to pay $21.94');
     }
 
 }
