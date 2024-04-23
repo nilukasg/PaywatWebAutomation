@@ -1,8 +1,6 @@
 
 import Login from "../../PageObjects/Login.js";
 
-
-
 describe('LoginToPaywat', () => {
     it('Global Admin Login', () => {
         cy.visit("https://preprod.paywat.com/login")
