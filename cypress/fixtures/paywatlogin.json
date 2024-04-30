@@ -1,6 +1,7 @@
 {
   "thirdPartyUrl": "https://preprod.paywat.com/thirdparty/redirect?hid=d5d674fcc64006a9396da51d82ae4cc006d0f29ac894403dd1358193e7dd114d&flow=items",
   "paywatUrl": "https://preprod.paywat.com/login",
+  "thirdPartyUrlTeacher":"https://preprod.paywat.com/thirdparty/redirect?hid=7cece2b83d73d868cb17e4bff8f4ce1b92b04e2ac42908430010c2b75bd65f9b&flow=balance",
   "username": "dileep.rajapaksha@schoolgrove.com",
   "password": "s@aeyH3n",
   "expected": "Dileep Rajapaksha",
@@ -8,6 +9,7 @@
   "passwordAdmin": "Paywat!123",
   "expectedParent": "Dileep Rajapaksha",
   "amount": "2",
+  "amountMyMeal": "1.32",
   "walletamount": "4",
   "CVV": "123",
   "cardnumber": "5555555555554444",
