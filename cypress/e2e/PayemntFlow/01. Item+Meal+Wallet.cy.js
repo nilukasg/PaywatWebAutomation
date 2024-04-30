@@ -6,7 +6,9 @@ import MealSummary from "../../PageObjects/MealTopUpSummary.js";
 import WalletTopUp from "../../PageObjects/MyBalanceTopUp.js";
 import CardSelection from "../../PageObjects/CreditCardSelection.js";
 import Pay from "../../PageObjects/Confirm&Pay.js";
+import ThankYouPage from "../../PageObjects/ThankYouPage.js";
 import Assertions from "../../PageObjects/Assertions.js";
+import Transactions from "../../PageObjects/Transactions.js";
 
 describe('Payment flow with Item/s, Meal TopUp & Wallet TopUp', () => {
     let credentials;
@@ -88,5 +90,18 @@ describe('Payment flow with Item/s, Meal TopUp & Wallet TopUp', () => {
         const pay = new Pay();
         pay.setCVVNumber(credentials.CVV);
         pay.clickNextButton7();
+
+        assertions.assertTitleThankYou();
+        assertions.assertSuccessStatus();
+        assertions.assertWalletBalance();
+
+        const thankYouPage = new ThankYouPage;
+        thankYouPage.clickInvoiceLink();
+        thankYouPage.clickUserName();
+        thankYouPage.clickViewTransactions();
+
+        const transactions = new Transactions;
+        transactions.clickFirstInvoice();
+
     });
 });

@@ -8,6 +8,8 @@ class Assertions {
     textTitleMealTopupSummary = "#feedScrollBar > div.meal-top-up-summary-main-container > div.meal-top-up-summary-header > div";
     textTitleMyBalanceTopup = "#feedScrollBar > div.account-balance-top-up-main-container > div.account-balance-top-up-main-title";
     textTitlePayWith= "#feedScrollBar > div.item-Payment-Card-List-main-container > div.item-Payment-Card-List-header > div";
+    textTitleThankYou = "#feedScrollBar > div.payment-confirmed-main-container > div.payment-confirmed-header > div";
+    textSuccessStatus = "#feedScrollBar > div.payment-confirmed-main-container > div:nth-child(2) > div > div > div.payment-confirmed-status-title";
 
     // Assertions - Select Items UI
     assertTitleSelectItems() {
@@ -108,6 +110,17 @@ class Assertions {
     }
     assertEnterCvv() {
         cy.get(this.textEnterCvv).invoke('text').should('include', 'Enter your CVV for your card ending 0000 to confirm you wish to pay $21.94');
+    }
+
+    // Assertions - Thank You UI
+    assertTitleThankYou() {
+        cy.get(this.textTitleThankYou).invoke('text').should('include', 'Thank You');
+    }
+    assertSuccessStatus() {
+        cy.get(this.textSuccessStatus).invoke('text').should('include', 'Your Payment is Complete.');
+    }
+    assertWalletBalance() {
+        cy.get('span').contains('$4.00').should('exist');
     }
 
 }

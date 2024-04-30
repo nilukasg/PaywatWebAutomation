@@ -5,6 +5,7 @@ import MealTopUp from "../../PageObjects/MealTopUp.js";
 import WalletTopUp from "../../PageObjects/MyBalanceTopUp.js";
 import CardSelection from "../../PageObjects/CreditCardSelection.js";
 import Pay from "../../PageObjects/Confirm&Pay.js";
+import ThankYouPage from "../../PageObjects/ThankYouPage.js";
 
 
 
@@ -44,5 +45,11 @@ describe('Payment flow with Item/s & Wallet TopUp', () => {
         const pay = new Pay();
         pay.setCVVNumber(credentials.CVV);
         pay.clickNextButton7();
+
+        assertions.assertTitleThankYou();
+        assertions.assertSuccessStatus();
+        
+        const thankYouPage = new ThankYouPage;
+        thankYouPage.clickInvoiceLink();
     });
 });
