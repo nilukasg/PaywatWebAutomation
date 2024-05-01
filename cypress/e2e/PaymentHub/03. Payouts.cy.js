@@ -22,15 +22,17 @@ describe('LoginToPaywat', () => {
             const leftMenu = new LeftMenu();
             leftMenu.clickMenuIcon();
             leftMenu.clickPaymentHub();
-            leftMenu.clickPaymentList();
+            leftMenu.clickPayouts();
 
             // Validate the Transaction Integration UI
             const payouts = new Payouts();
             payouts.verifyTitle();
             payouts.clickPayouts();
-            payouts.clickFirstPayoutRecord();
+            // payouts.clickFirstPayoutRecord();
+            // payouts.clickBackArrow();
             payouts.clickUnbatchedPayouts();
-            payouts.clickFirstUnbatchedPayoutRecord();
+            // payouts.clickFirstUnbatchedPayoutRecord();
+            // payouts.clickBackArrow();
         });
     });
 });

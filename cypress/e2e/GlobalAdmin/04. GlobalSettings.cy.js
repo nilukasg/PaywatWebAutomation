@@ -22,11 +22,8 @@ describe('LoginToPaywat', () => {
             // Click on menu icon and then navigate to Organizations
             const leftMenu = new LeftMenu();
             leftMenu.clickMenuIcon();
-            leftMenu.clickOrganizations();
-
-            // Click on Lumen Touch Test District           
-            const organizationsList = new OrganizationsList();
-            cy.get(organizationsList.getLumenTouchElement()).first().click();
+            leftMenu.clickGlobalSettings();
+            cy.wait(1000);
 
             // Validate the organization details in each tab
             const globalSettings = new GlobalSettings();

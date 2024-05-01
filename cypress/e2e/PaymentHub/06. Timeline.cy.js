@@ -22,7 +22,7 @@ describe('LoginToPaywat', () => {
             const leftMenu = new LeftMenu();
             leftMenu.clickMenuIcon();
             leftMenu.clickPaymentHub();
-            leftMenu.clickPaymentList();
+            leftMenu.clickTimeline();
 
             // Validate the Transaction Integration UI
             const timeline = new Timeline();

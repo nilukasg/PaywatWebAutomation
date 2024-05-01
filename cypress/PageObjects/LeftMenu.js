@@ -51,7 +51,7 @@ class LeftMenu {
 
     }
     clickPayouts() {
-        cy.get('span').contains('Payouts').click()
+        cy.get('span').contains('local_shipping').click()
 
     }
     clickInvoices() {

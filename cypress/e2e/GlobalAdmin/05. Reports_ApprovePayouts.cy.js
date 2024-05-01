@@ -29,8 +29,10 @@ describe('LoginToPaywat', () => {
             approvePayouts.verifyTitle();
             approvePayouts.clickPayouts();
             approvePayouts.clickFirstPayoutRecord();
+            approvePayouts.clickBackArrow();
             approvePayouts.clickUnbatchedPayouts();
             approvePayouts.clickFirstUnbatchedPayoutRecord();
+            approvePayouts.clickBackArrow();
         });
     });
 });
